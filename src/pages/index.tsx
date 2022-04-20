@@ -5,8 +5,12 @@ import { db } from "../firebase.js";
 import { collection, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { theme } from '../theme';
+import { url } from 'inspector';
 
 const useStyles = makeStyles((thme) => ({
+  ":root": {
+    "--bg-image": ""
+  },
   toolbar: {
     display: "flex",
     justifyContent: "center",
@@ -102,7 +106,8 @@ const useStyles = makeStyles((thme) => ({
     overflow: "hidden",
     textAlign: "center",
     background: "round",
-    backgroundRepeatX: "repeat"
+    backgroundRepeatX: "repeat",
+    backgroundImage: "var(--bg-image)"
   },
   loadingResult: {
     height: 0,
@@ -567,8 +572,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           </Box>
         </Box>
         <Box marginTop={1} className={classes.loadingResult}>
-          <Box className={classes.boxResult2}
-            style={{ backgroundImage: ps_image }}>
+          <Box className={classes.boxResult2}>
             <>
               <span className={classes.textInsideLoadingBar2}>
                 <>
@@ -602,7 +606,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           values.projects.forEach(element => {
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_result(element.result);
-              setPs_image(element.imgUrl);
+              document.documentElement.style.setProperty('--bg-image', "url("+element.imgUrl+")");
             }
           });
         } else {
