@@ -169,25 +169,6 @@ const useStyles = makeStyles((thme) => ({
   },
   centeredTextResult: {
     textAlign: "center"
-  },
-  circleBackground: {
-    fill: "none"
-  },
-  circleProgress: {
-    fill: "none"
-  },
-  circleBackground: {
-    stroke: "#ddd"
-  },
-  circleProgress: {
-    stroke: "red",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  },
-  circleText: {
-    fontSize: "3em",
-    fontWeight: "bold",
-    fill: "red"
   }
 }));
 
