@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   boxColumnFixRight: {
     flex: "75%",
     paddingLeft: "1.5em",
-      paddingRight: "1.5em",
+    paddingRight: "1.5em",
     [theme.breakpoints.down('sm')]: {
       paddingLeft: "0",
       paddingRight: "0"
@@ -218,7 +218,7 @@ export default function Home() {
             + " " + classes.innerColumnLeft}>
             <Typography variant="h6" align="center"
               className={classes.leftInfo}>
-                📊 Project Info
+              📊 Project Info
             </Typography>
             <Typography align="center"
               className={classes.leftText}>
@@ -535,34 +535,51 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
     return step === childrenArray.length - 1;
   }
 
+  const boldText = {
+    fontWeight: 'bold' as 'bold',
+    marginLeft: '7px' as '7px'
+  }
+
   if (completed) {
     return (
       <Box>
         <Box marginTop={3} style={{ textAlign: "center" }}>
-          <span>
-            Analizing:
-          </span>
-          <span
-            style={{ fontWeight: "700", marginLeft: "7px" }}>
-            {ps_projectName}
-          </span>
+          <>
+            <span>
+              Analizing:
+            </span>
+          </>
+          <>
+            <span style={boldText}>
+              {ps_projectName}
+            </span>
+          </>
         </Box>
         <Box marginTop={2} className={classes.boxResult}>
           <Box className={classes.loadingBar}>
-            <span className={classes.textInsideLoadingBar}>DONE</span>
+            <>
+              <span className={classes.textInsideLoadingBar}>
+                DONE
+              </span>
+            </>
           </Box>
         </Box>
         <Box marginTop={1} className={classes.loadingResult}>
           <Box id="bgUpdate" className={classes.boxResult2}>
-            <span className={classes.textInsideLoadingBar2}>
-              <span>
-                APPROVAL RATE:
+            <>
+              <span className={classes.textInsideLoadingBar2}>
+                <>
+                  <span>
+                    APPROVAL RATE:
+                  </span>
+                </>
+                <>
+                  <span style={boldText}>
+                    {ps_result}%
+                  </span>
+                </>
               </span>
-              <span
-                style={{ fontWeight: "700", marginLeft: "7px" }}>
-                {ps_result}%
-              </span>
-            </span>
+            </>
           </Box>
         </Box>
       </Box>
