@@ -102,8 +102,7 @@ const useStyles = makeStyles((thme) => ({
     overflow: "hidden",
     textAlign: "center",
     background: "round",
-    backgroundRepeatX: "repeat",
-    backgroundImage: "",
+    backgroundRepeatX: "repeat"
   },
   loadingResult: {
     height: 0,
@@ -601,7 +600,9 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           values.projects.forEach(element => {
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_result(element.result);
+              console.log(document.getElementById("bgUpdate"));
               document.getElementById("bgUpdate").style.backgroundImage = "url("+element.imgUrl+")";
+              console.log(document.getElementById("bgUpdate"));
             }
           });
         } else {
