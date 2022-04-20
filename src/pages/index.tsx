@@ -4,9 +4,9 @@ import { CheckboxWithLabel, TextField } from 'formik-material-ui';
 import { db } from "../firebase.js";
 import { collection, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
-import { theme } from '../theme.jsx';
+import { theme } from '../theme';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((thme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "center",
@@ -598,6 +598,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           values.projects.forEach(element => {
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_result(element.result);
+              console.log(element.imgUrl);
               document.getElementById('bgUpdate').style.backgroundImage = "url(" + element.imgUrl + ")";
             }
           });
