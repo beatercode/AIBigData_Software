@@ -523,7 +523,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
   const Project = (name, result) => { return { name: name, result: result } };
 
   const classes = useStyles();
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<FormikStepProps>[];
+  const childrenArray = Object.keys(children).map((key) => children[key]);
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
   const [completed, setCompleted] = useState(false);
@@ -537,7 +537,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
 
   const boldText = {
     fontWeight: 'bold' as 'bold',
-    marginLeft: '7px' as '7px'
+    marginLeft: '7px'
   }
 
   if (completed) {
