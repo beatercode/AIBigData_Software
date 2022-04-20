@@ -169,6 +169,25 @@ const useStyles = makeStyles((thme) => ({
   },
   centeredTextResult: {
     textAlign: "center"
+  },
+  circleBackground: {
+    fill: "none"
+  },
+  circleProgress: {
+    fill: "none"
+  },
+  circleBackground: {
+    stroke: "#ddd"
+  },
+  circleProgress: {
+    stroke: "red",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  },
+  circleText: {
+    fontSize: "3em",
+    fontWeight: "bold",
+    fill: "red"
   }
 }));
 
@@ -577,7 +596,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
               <span className={classes.textInsideLoadingBar2}>
                 <>
                   <span>
-                    { ps_image !== "" ? ps_image : "APPROVAL RATE:" }
+                    {ps_image !== "" ? ps_image : "APPROVAL RATE:"}
                   </span>
                 </>
                 <>
@@ -606,7 +625,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           values.projects.forEach(element => {
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_result(element.result);
-              document.documentElement.style.setProperty('--bg-image', "url("+element.imgUrl+")");
+              document.documentElement.style.setProperty('--bg-image', "url(" + element.imgUrl + ")");
             }
           });
         } else {

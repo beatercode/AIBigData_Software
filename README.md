@@ -2,8 +2,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Deployed Demo: http://youtube-2020-june-multi-step-form-formik.bmvantunes.vercel.app/
-
 First, run the development server:
 
 ```bash
