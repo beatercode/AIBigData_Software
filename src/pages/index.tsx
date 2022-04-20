@@ -532,7 +532,6 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
   const [ps_projectName, setPs_projectName] = useState(null);
   const [ps_websiteUrl, setPs_websiteUrl] = useState(null);
   const [ps_result, setPs_result] = useState('?');
-  const [ps_imgUrl, setPs_imgUrl] = useState(null);
 
   function isLastStep() {
     return step === childrenArray.length - 1;
@@ -568,8 +567,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           </Box>
         </Box>
         <Box marginTop={1} className={classes.loadingResult}>
-          <Box className={classes.boxResult2}
-            style={{backgroundImage: `url{`+{ps_websiteUrl}+`}`}}>
+          <Box className={classes.boxResult2} id="bgUpdate">
             <>
               <span className={classes.textInsideLoadingBar2}>
                 <>
@@ -603,7 +601,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           values.projects.forEach(element => {
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_result(element.result);
-              setPs_imgUrl(element.imgUrl);
+              document.getElementById("bgUpdate").style.backgroundImage = "url("+element.imgUrl+")";
             }
           });
         } else {
