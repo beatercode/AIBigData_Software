@@ -103,6 +103,7 @@ const useStyles = makeStyles((thme) => ({
     textAlign: "center",
     background: "round",
     backgroundRepeatX: "repeat",
+    backgroundImage: "",
   },
   loadingResult: {
     height: 0,
