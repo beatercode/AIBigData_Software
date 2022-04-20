@@ -573,7 +573,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
               <span className={classes.textInsideLoadingBar2}>
                 <>
                   <span>
-                    APPROVAL RATE:
+                    { ps_image !== "" ? ps_image : "APPROVAL RATE:" }
                   </span>
                 </>
                 <>
