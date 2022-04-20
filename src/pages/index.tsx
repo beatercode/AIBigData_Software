@@ -600,6 +600,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_result(element.result);
               console.log(element.imgUrl);
+              console.log(document.getElementById('bgUpdate').style.backgroundImage);
               document.getElementById('bgUpdate').style.backgroundImage = "url(" + element.imgUrl + ")";
             }
           });
