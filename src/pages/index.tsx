@@ -504,8 +504,13 @@ export default function Home() {
             <FormikStep
               label="✅"
             >
-              By continuing with the processing,
-              I confirm that I have been authorized to use this software
+              <Box marginBottom={2}>
+                By continuing with the processing,
+                I confirm that I have been authorized to use this software.
+                <div>All Rights Reserved </div>
+                <div><b>2022 ©AIBigData </b></div>
+                <div><b>2022 ©AIBDSoftware </b></div>
+              </Box>
             </FormikStep>
           </FormikStepper>
         </Box>
