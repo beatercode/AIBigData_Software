@@ -5,178 +5,11 @@ import { db } from "../firebase.js";
 import { collection, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { theme } from '../theme';
-import { url } from 'inspector';
-
-const useStyles = makeStyles((thme) => ({
-  ":root": {
-    "--bg-image": ""
-  },
-  toolbar: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  boxColumnFixLeft: {
-    flex: "25%",
-    overflow: "scroll",
-    borderRadius: "5px",
-    [theme.breakpoints.down('sm')]: {
-      maxHeight: "230px",
-      borderRadius: "5px",
-    }
-  },
-  coloredCard: {
-    backgroundColor: "#ff4e00",
-    backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)"
-  },
-  innerColumnLeft: {
-    paddingBottom: "1em",
-    borderRadius: "5px",
-    [theme.breakpoints.down('sm')]: {
-      borderRadius: "5px",
-    }
-  },
-  boxColumnFixRight: {
-    flex: "75%",
-    paddingLeft: "1.5em",
-    paddingRight: "1.5em",
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: "0",
-      paddingRight: "0"
-    }
-  },
-  leftInfo: {
-    marginTop: "15px"
-  },
-  leftText: {
-    textAlign: "left",
-    marginTop: "5px",
-    fontSize: "1em",
-    marginLeft: "0.9em",
-    marginRight: "0.9em",
-  },
-  latestLeftText: {
-    marginBottom: "10px",
-  },
-  boxWithColumn: {
-    display: "flex",
-    height: "auto",
-    flexDirection: "row",
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: "column",
-    }
-  },
-  // INNER COMP PAGES
-  labelAlignCheckBox: {
-    marginTop: "-12px",
-    marginBottom: "15px"
-  },
-  labelAlignCheckBoxToken: {
-    marginTop: "-12px",
-    marginBottom: "15px",
-    paddingRight: "5px"
-  },
-  boxToken: {
-    boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
-    padding: "20px 15px 20px 15px",
-    marginBottom: "18px",
-    borderRadius: "10px"
-  },
-  labelFixedWidth: {
-    width: "2em",
-    maxWidth: "2em",
-    textAlign: "left"
-  },
-  boxResult: {
-    boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
-    borderRadius: "10px",
-    height: "30px",
-    overflow: "hidden"
-  },
-  loadingBar: {
-    boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
-    background: "#ff5656",
-    height: "100%",
-    color: "transparent",
-    animation: `$fill 5s forwards ${theme.transitions.easing.easeInOut}`
-  },
-  boxResult2: {
-    boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
-    borderRadius: "10px",
-    height: "100%",
-    overflow: "hidden",
-    textAlign: "center",
-    background: "round",
-    backgroundRepeatX: "repeat",
-    backgroundImage: "var(--bg-image)"
-  },
-  loadingResult: {
-    height: 0,
-    animation: `$spawn 5s forwards ${theme.transitions.easing.easeInOut}`
-  },
-  "@keyframes spawn": {
-    "0%": {
-      height: 0
-    },
-    "99%": {
-      height: 0
-    },
-    "100%": {
-      height: "250px"
-    },
-  },
-  textInsideLoadingBar: {
-    alignItems: "center",
-    margin: "auto",
-    lineHeight: "25px",
-  },
-  textInsideLoadingBar2: {
-    alignItems: "center",
-    margin: "auto",
-    fontSize: "25px",
-    lineHeight: "250px",
-    color: "#000",
-    backgroundColor: "#fff",
-    borderRadius: "10px",
-    padding: "0 10px 0 10px",
-    boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
-  },
-  "@keyframes fill": {
-    "0%": {
-      width: "0%",
-      background: "#ff5656",
-      color: "transparent"
-    },
-    "20%": {
-      width: "20%"
-    },
-    "60%": {
-      width: "75%"
-    },
-    "79%": {
-      width: "79%",
-      background: "#e16419",
-    },
-    "99%": {
-      color: "transparent"
-    },
-    "100%": {
-      width: "100%",
-      background: "#0eb726",
-      textAlign: "center",
-      color: "#ffffff",
-      fontWeight: "700",
-    }
-  },
-  centeredTextResult: {
-    textAlign: "center"
-  }
-}));
 
 const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
 
 export default function Home() {
 
-  const classes = useStyles();
   const [projectName, setProjectName] = useState(null);
   const [websiteUrl, setWebsiteUrl] = useState(null)
   const [twitterCheck, setTwitterCheck] = useState(false);
@@ -215,50 +48,58 @@ export default function Home() {
   }
 
   return (
-    <Card>
-      <CardContent className={classes.boxWithColumn}>
+    <Card style={{
+      marginTop: "10%",
+      boxShadow: "rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px",
+      marginRight: "auto",
+      marginLeft: "auto",
+    }}>
+      <CardContent className="boxWithColumn">
+        <button className="refreshButton" onClick={() => {
+          window.location.reload();
+        }}>R</button>
+        <Box marginTop={0} className="boxColumnFixLeft">
+          <Card className="leftBorder innerColumnLeft">
+            <Box>
+              <Typography variant="h6" align="center"
+                className="leftInfo">
+                📊 Project Info
+              </Typography>
+              <Typography align="center"
+                className="leftText">
+                From these information, the AI with gather the major information
+                such as: project information amount, SEO cover, Web Indexing, Trends,
+                Documents amount and quality, major website notation
+              </Typography>
+              <Typography variant="h6" align="center"
+                className="leftInfo">
+                🫂 Social Info
+              </Typography>
+              <Typography align="center"
+                className="leftText">
+                From this section, the AI will be able to generate a series
+                of fundamental information, some of which are: first
+                post/coherent interaction on Twitter, quantity/quality of
+                contents on Twitter, Instagram and Medium;
+                Discord channel quantity and quality and more
+              </Typography>
+              <Typography variant="h6" align="center"
+                className="leftInfo">
+                📈 Assets Info
+              </Typography>
+              <Typography align="center"
+                className="leftText latestLeftText">
+                This section allows the AI to analyze the technical
+                aspects of the project. Governance Token, additional
+                Token/Coin, chain location, quality of the chain,
+                historical period, type of project, NFT if/when
+                released and analysis of the latter and much more
+              </Typography>
+            </Box>
+          </Card >
+        </Box >
 
-        <Box marginTop={0} className={classes.boxColumnFixLeft}>
-          <Card className={classes.coloredCard
-            + " " + classes.innerColumnLeft}>
-            <Typography variant="h6" align="center"
-              className={classes.leftInfo}>
-              📊 Project Info
-            </Typography>
-            <Typography align="center"
-              className={classes.leftText}>
-              From these information, the AI with gather the major information
-              such as: project information amount, SEO cover, Web Indexing, Trends,
-              Documents amount and quality, major website notation
-            </Typography>
-            <Typography variant="h6" align="center"
-              className={classes.leftInfo}>
-              🫂 Social Info
-            </Typography>
-            <Typography align="center"
-              className={classes.leftText}>
-              From this section, the AI will be able to generate a series
-              of fundamental information, some of which are: first
-              post/coherent interaction on Twitter, quantity/quality of
-              contents on Twitter, Instagram and Medium;
-              Discord channel quantity and quality and more
-            </Typography>
-            <Typography variant="h6" align="center"
-              className={classes.leftInfo}>
-              📈 Assets Info
-            </Typography>
-            <Typography align="center"
-              className={classes.leftText + " " + classes.latestLeftText}>
-              This section allows the AI to analyze the technical
-              aspects of the project. Governance Token, additional
-              Token/Coin, chain location, quality of the chain,
-              historical period, type of project, NFT if/when
-              released and analysis of the latter and much more
-            </Typography>
-          </Card>
-        </Box>
-
-        <Box marginTop={0} className={classes.boxColumnFixRight}>
+        <Box marginTop={0} className="boxColumnFixRight">
           <FormikStepper
             initialValues={{
               projectName: '',
@@ -289,16 +130,16 @@ export default function Home() {
             }}
           >
             <FormikStep label="📊">
-              <Box paddingBottom={1} paddingTop={3}>
+              < Box paddingBottom={1} paddingTop={3} >
                 Project basic information
-              </Box>
+              </Box >
               <Box paddingBottom={0}>
                 <Field fullWidth name="projectName" component={TextField} label="Project Name" />
               </Box>
               <Box paddingBottom={2}>
                 <Field fullWidth name="websiteUrl" component={TextField} label="Website URL" />
               </Box>
-            </FormikStep>
+            </FormikStep >
             <FormikStep
               label="🫂"
             >
@@ -309,15 +150,14 @@ export default function Home() {
                   onClick={() => {
                     setTwitterCheck(!twitterCheck);
                   }}
-                  className={classes.labelFixedWidth}
+                  className="labelFixedWidth"
                   component={CheckboxWithLabel}
-                  Label={{ label: 'Twitter' }}
-                />
+                  Label={{ label: 'Twitter' }} />
                 <Field name="twitterLink"
                   component={TextField}
                   label="Link Twitter "
                   disabled={!twitterCheck}
-                  className={classes.labelAlignCheckBox} />
+                  className="labelAlignCheckBox" />
               </Box>
               <Box>
                 <Field
@@ -326,7 +166,7 @@ export default function Home() {
                   onClick={() => {
                     setDiscordCheck(!discordCheck);
                   }}
-                  className={classes.labelFixedWidth}
+                  className="labelFixedWidth"
                   component={CheckboxWithLabel}
                   Label={{ label: 'Discord' }}
                 />
@@ -334,7 +174,7 @@ export default function Home() {
                   component={TextField}
                   label="Link Discord "
                   disabled={!discordCheck}
-                  className={classes.labelAlignCheckBox} />
+                  className="labelAlignCheckBox" />
               </Box>
               <Box>
                 <Field
@@ -343,7 +183,7 @@ export default function Home() {
                   onClick={() => {
                     setMediumCheck(!mediumCheck);
                   }}
-                  className={classes.labelFixedWidth}
+                  className="labelFixedWidth"
                   component={CheckboxWithLabel}
                   Label={{ label: 'Medium' }}
                 />
@@ -351,7 +191,7 @@ export default function Home() {
                   component={TextField}
                   label="Link Medium "
                   disabled={!mediumCheck}
-                  className={classes.labelAlignCheckBox} />
+                  className="labelAlignCheckBox" />
               </Box>
               <Box paddingBottom={2}>
                 <Field
@@ -360,7 +200,7 @@ export default function Home() {
                   onClick={() => {
                     setInstagramCheck(!instagramCheck);
                   }}
-                  className={classes.labelFixedWidth}
+                  className="labelFixedWidt"
                   component={CheckboxWithLabel}
                   Label={{ label: 'Instagram' }}
                 />
@@ -368,13 +208,13 @@ export default function Home() {
                   component={TextField}
                   label="Link Instagram "
                   disabled={!instagramCheck}
-                  className={classes.labelAlignCheckBox} />
+                  className="labelAlignCheckBox" />
               </Box>
 
             </FormikStep>
             <FormikStep label="📈">
 
-              <Box paddingTop={3} className={classes.boxToken}>
+              <Box paddingTop={3} className="boxToken">
                 <Box>
                   <Field
                     name="tokenGovernanceCheckbox"
@@ -389,13 +229,13 @@ export default function Home() {
                     component={TextField}
                     label="Name "
                     disabled={!tokenGovernanceCheckbox}
-                    className={classes.labelAlignCheckBoxToken}
+                    className="labelAlignCheckBoxToken"
                   />
                   <Field marginright={1} name="tokenGovernanceLaunchDate"
                     component={TextField}
                     label="Launch date "
                     disabled={!tokenGovernanceCheckbox}
-                    className={classes.labelAlignCheckBoxToken}
+                    className="labelAlignCheckBoxToken"
                   />
                 </Box>
                 <Box>
@@ -414,30 +254,31 @@ export default function Home() {
                     Label={{ label: 'Private sale' }}
                   />
                 </Box>
-              </Box>
+              </Box >
 
-              <Box paddingTop={3} className={classes.boxToken}>
+              <Box paddingTop={3} className="boxToken">
                 <Box>
                   <Field
                     name="tokenSecondCheckbox"
                     type="checkbox"
                     onClick={() => {
                       setTokenSecondCheckbox(!tokenSecondCheckbox);
-                    }}
+                    }
+                    }
                     component={CheckboxWithLabel}
                     Label={{ label: 'Token (Second)' }}
                   />
-                  <Field marginright={1} name="tokenSecondName"
+                  < Field marginright={1} name="tokenSecondName"
                     component={TextField}
                     label="Name "
                     disabled={!tokenSecondCheckbox}
-                    className={classes.labelAlignCheckBoxToken}
+                    className="labelAlignCheckBoxToken"
                   />
                   <Field marginright={1} name="tokenSecondLaunchDate"
                     component={TextField}
                     label="Launch date "
                     disabled={!tokenSecondCheckbox}
-                    className={classes.labelAlignCheckBoxToken}
+                    className="labelAlignCheckBoxToken"
                   />
                 </Box>
                 <Box>
@@ -448,17 +289,17 @@ export default function Home() {
                     component={CheckboxWithLabel}
                     Label={{ label: 'Presale' }}
                   />
-                  <Field
+                  < Field
                     name="tokenSecondPrivateSaleCheckbox"
                     type="checkbox"
                     disabled={!tokenSecondCheckbox}
                     component={CheckboxWithLabel}
                     Label={{ label: 'Private sale' }}
                   />
-                </Box>
-              </Box>
+                </Box >
+              </Box >
 
-              <Box paddingTop={3} className={classes.boxToken}>
+              <Box paddingTop={3} className="boxToken">
                 <Box>
                   <Field
                     name="nftCheckbox"
@@ -469,17 +310,17 @@ export default function Home() {
                     component={CheckboxWithLabel}
                     Label={{ label: 'NFT Collection' }}
                   />
-                  <Field marginright={1} name="nftLaunchDate"
+                  < Field marginright={1} name="nftLaunchDate"
                     component={TextField}
                     label="Launch date "
                     disabled={!nftCheckbox}
-                    className={classes.labelAlignCheckBoxToken}
+                    className="labelAlignCheckBoxToken"
                   />
                   <Field marginright={1} name="nftCollectionSize"
                     component={TextField}
                     label="Size "
                     disabled={!nftCheckbox}
-                    className={classes.labelAlignCheckBoxToken}
+                    className="labelAlignCheckBoxToken"
                   />
                 </Box>
                 <Box>
@@ -490,17 +331,17 @@ export default function Home() {
                     component={CheckboxWithLabel}
                     Label={{ label: 'Whitelist' }}
                   />
-                  <Field
+                  < Field
                     name="nftPrivateSaleCheckbox"
                     type="checkbox"
                     disabled={!nftCheckbox}
                     component={CheckboxWithLabel}
                     Label={{ label: 'Private sale' }}
                   />
-                </Box>
-              </Box>
+                </Box >
+              </Box >
 
-            </FormikStep>
+            </FormikStep >
             <FormikStep
               label="✅"
             >
@@ -512,10 +353,10 @@ export default function Home() {
                 <div><b>2022 ©AIBDSoftware </b></div>
               </Box>
             </FormikStep>
-          </FormikStepper>
-        </Box>
-      </CardContent>
-    </Card>
+          </FormikStepper >
+        </Box >
+      </CardContent >
+    </Card >
   );
 }
 
@@ -532,7 +373,6 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
 
   const Project = (name, result) => { return { name: name, result: result } };
 
-  const classes = useStyles();
   const childrenArray = Object.keys(children).map((key) => children[key]);
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
@@ -567,19 +407,19 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
             </span>
           </>
         </Box>
-        <Box marginTop={2} className={classes.boxResult}>
-          <Box className={classes.loadingBar}>
+        <Box marginTop={2} className="boxResult">
+          <Box className="loadingBar">
             <>
-              <span className={classes.textInsideLoadingBar}>
+              <span className="textInsideLoadingBar">
                 DONE
               </span>
             </>
           </Box>
         </Box>
-        <Box marginTop={1} className={classes.loadingResult}>
-          <Box className={classes.boxResult2}>
+        <Box marginTop={1} className="loadingResult">
+          <Box className="boxResult2">
             <>
-              <span className={classes.textInsideLoadingBar2}>
+              <span className="textInsideLoadingBar2">
                 <>
                   <span>
                     {ps_image !== "" ? ps_image : "APPROVAL RATE:"}
@@ -592,9 +432,9 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                 </>
               </span>
             </>
-          </Box>
-        </Box>
-      </Box>
+          </Box >
+        </Box >
+      </Box >
     );
   }
 
@@ -638,7 +478,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                 <Button
                   disabled={isSubmitting}
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   onClick={() => setStep((s) => s - 1)}
                 >
                   Back
@@ -650,8 +490,9 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                 startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
                 disabled={isSubmitting}
                 variant="contained"
-                color="primary"
                 type="submit"
+                color="secondary"
+                className="myButtons"
               >
                 {isSubmitting ? 'ELABORATING...' : isLastStep() ? 'ELABORATE' : 'Next'}
               </Button>

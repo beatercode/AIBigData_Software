@@ -1,0 +1,304 @@
+.MuiStepper-alternativeLabel,
+.MuiCardContent-root:last-child {
+    background-color: #d3d7fa !important;
+}
+
+.MuiToolbar-root {
+    width: fit-content;
+    margin: auto;
+}
+
+.MuiSvgIcon-root {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active {
+    color: #7047E5 !important;
+}
+
+.MuiStepIcon-root {
+    color: #FFFEFF !important;
+}
+
+.MuiStepIcon-text {
+    fill: black !important;
+}
+
+/* importer */
+
+button {
+    margin-top: 12px !important;
+    background-color: #7047E5 !important;
+}
+
+.toolbar {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.boxColumnFixLeft {
+    width: 40% !important;
+    overflow: scroll !important;
+    background-color: #7047E5 !important;
+    border-radius: 5px !important;
+    box-shadow: rgb(38 57 77) 0px 20px 30px -10px !important;
+}
+
+.coloredCard {
+    background-color: #ff4e00 !important;
+    background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%) !important;
+}
+
+.leftBorder {
+    /*border-right: 2px solid black;*/
+    border-radius: 0 !important
+}
+
+.innerColumnLeft {
+    padding-bottom: 1em !important;
+    border-radius: 5px !important;
+
+    /*
+    [theme.breakpoints.down('sm')] {
+        borderRadius: 5px;
+    }
+    */
+    background-color: #7047E5 !important;
+    color: white !important;
+}
+
+.MuiBox-root-14 {
+    font-size: medium;
+    font-weight: 800;
+}
+
+span {
+    font-weight: 600 !important;
+}
+
+.boxColumnFixRight {
+    width: 60% !important;
+    padding-left: 1.5em !important;
+    padding-right: 1.5em !important;
+    max-height: 540px !important;
+    overflow: scroll !important;
+}
+
+.leftInfo {
+    margin-top: 15px !important;
+    color: black !important;
+    background-color: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 10px 0 10px !important;
+}
+
+.leftText {
+    text-align: left !important;
+    margin-top: 5px !important;
+    font-size: 1em !important;
+    margin-left: 0.9em !important;
+    margin-right: 0.9em !important;
+}
+
+.latest-leftText {
+    margin-bottom: 10px !important;
+}
+
+.boxWithColumn {
+    display: flex !important;
+    height: auto !important;
+    width: fit-content !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    flex-direction: row !important
+}
+
+@media screen and (max-width: 600px) {
+    .boxWithColumn {
+        flex-direction: column !important;
+    }
+
+    .boxColumnFixRight {
+        margin-top: 35px !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-height: 20000px !important;
+        flex: 40% !important;
+    }
+
+    .boxColumnFixLeft {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-height: 230px !important;
+        border-radius: 5px !important;
+        flex: 60% !important;
+    }
+}
+
+
+.labelAlignCheckBox {
+    margin-top: -12px !important;
+    margin-bottom: 15px !important;
+}
+
+.labelAlignCheckBoxToken {
+    margin-top: -12px;
+    margin-bottom: 15px;
+    padding-right: 5px
+}
+
+.boxToken {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    padding: 20px 15px 20px 15px !important;
+    margin-bottom: 18px !important;
+    border-radius: 10px !important;
+}
+
+.labelFixedWidth {
+    width: 2em !important;
+    max-width: 2em !important;
+    text-align: left !important;
+}
+
+.boxResult {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    border-radius: 10px !important;
+    height: 30px !important;
+    overflow: hidden !important;
+}
+
+.loadingBar {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    background: #ff5656 !important;
+    height: 100% !important;
+    color: transparent !important;
+    animation: fill 5s forwards ease-in-out !important;
+}
+
+.boxResult2 {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    border-radius: 10px !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    background: round !important;
+    background-repeat: repeat !important;
+    background-image: var(--bg-image) !important;
+}
+
+.loadingResult {
+    height: 0;
+    animation: spawn 5s forwards ease-in-out
+}
+
+@keyframes spawn {
+    0% {
+        height: 0
+    }
+
+    99% {
+        height: 0
+    }
+
+    100% {
+        height: 250px
+    }
+}
+
+.textInsideLoadingBar {
+    align-items: center;
+    margin: auto;
+    line-height: 25px;
+}
+
+.textInsideLoadingBar2 {
+    align-items: center;
+    margin: auto;
+    font-size: 25px;
+    line-height: 250px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+;
+
+@keyframes fill {
+    0% {
+        width: 0%;
+        background: #ff5656;
+        color: transparent
+    }
+
+    20% {
+        width: 20%
+    }
+
+    60% {
+        width: 75%
+    }
+
+    79% {
+        width: 79%;
+        background: #e16419;
+    }
+
+    99% {
+        color: transparent
+    }
+
+    100% {
+        width: 100%;
+        background: #0eb726;
+        textAlign: center;
+        color: #ffffff;
+        fontWeight: 700;
+    }
+}
+
+.centeredTextResult {
+    text-align: center !important;
+}
+
+.refreshButton {
+    position: absolute;
+    background-color: #7047E5;
+    color: white;
+    top: 15px;
+    right: 40px;
+    outline: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    box-shadow: rgb(38 57 77) 0px 20px 30px -10px !important;
+    z-index: 1100;
+}
+
+@media screen and (max-width: 600px) {
+    .refreshButton {
+        top: 90% !important;
+        left: 40px !important; 
+    }  
+}

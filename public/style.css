@@ -1,0 +1,251 @@
+.MuiCardContent-root:last-child {
+    background-color: #d3d7fa !important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active {
+    color: #7047E5 !important;
+}
+
+.MuiStepIcon-root {
+    color: #FFFEFF !important;
+}
+
+.MuiStepIcon-text {
+    fill: black !important;
+}
+
+/* importer */
+
+.myButtons {
+    background-color: #7047E5 !important;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+}
+
+.boxColumnFix-left {
+    width: 40%;
+    overflow: scroll;
+    border-radius: 5px;
+    /*
+    [theme.breakpoints.down('sm')] {
+      maxHeight: 230px;
+      borderRadius: 5px;
+    }; */
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px
+}
+
+.coloredCard {
+    background-color: #ff4e00;
+    background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)
+}
+
+.leftBorder {
+    /*border-right: 2px solid black;*/
+    border-radius: 0 !important
+}
+
+.innerColumn-left {
+    padding-bottom: 1em;
+    border-radius: 5px;
+
+    /*
+    [theme.breakpoints.down('sm')] {
+        borderRadius: 5px;
+    }
+    */
+    background-color: #7047E5;
+    color: white;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px
+}
+
+.boxColumnFixRight {
+    width: 60%;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    max-height: 558px;
+    overflow: scroll;
+
+    /*
+    [theme.breakpoints.down('sm')] {
+        padding-left: 0;
+        paddingRight: 0
+    }
+    */
+}
+
+.leftInfo {
+    margin-top: 15px;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px 0 10px
+}
+
+.leftText {
+    text-align: -left;
+    margin-top: 5px;
+    font-size: 1em;
+    margin-left: 0.9em;
+    margin-right: 0.9em;
+}
+
+.latest-leftText {
+    margin-bottom: 10px;
+}
+
+.boxWithColumn {
+    display: flex;
+    height: auto;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    flex-direction: row;
+
+    /*
+    [theme.breakpoints.down('sm')] {
+        flexDirection: column;
+    }
+    */
+}
+
+
+.labelAlignCheckBox {
+    margin-top: -12px;
+    margin-bottom: 15px
+}
+
+.labelAlignCheckBoxToken {
+    margin-top: -12px;
+    margin-bottom: 15px;
+    padding-right: 5px
+}
+
+.boxToken {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
+    padding: 20px 15px 20px 15px;
+    margin-bottom: 18px;
+    border-radius: 10px
+}
+
+.labelFixedWidth {
+    width: 2em;
+    max-width: 2em;
+    textalign: -left
+}
+
+.boxResult {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
+    border-radius: 10px;
+    height: 30px;
+    overflow: hidden
+}
+
+.loadingBar {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
+    background: #ff5656;
+    height: 100%;
+    color: transparent;
+    animation: fill 5s forwards ease-in-out;
+}
+
+.boxResult2 {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
+    border-radius: 10px;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    background: round;
+    background-repeat: repeat;
+    background-image: var(--bg-image)
+}
+
+;
+
+.loadingResult {
+    height: 0;
+
+    animation: spawn 5s forwards ease-in-out
+}
+
+@keyframes spawn {
+    0% {
+        height: 0
+    }
+    99% {
+        height: 0
+    }
+    100% {
+        height: 250px
+    }
+}
+
+.textInsideLoadingBar {
+    align-items: center;
+    margin: auto;
+    line-height: 25px;
+}
+
+.textInsideLoadingBar2 {
+    align-items: center;
+    margin: auto;
+    font-size: 25px;
+    line-height: 250px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+;
+
+@keyframes fill {
+    0% {
+        width: 0%;
+        background: #ff5656;
+        color: transparent
+    }
+    20% {
+        width: 20%
+    }
+    60% {
+        width: 75%
+    }
+    79% {
+        width: 79%;
+        background: #e16419;
+    }
+    99% {
+        color: transparent
+    }
+    100% {
+        width: 100%;
+        background: #0eb726;
+        textAlign: center;
+        color: #ffffff;
+        fontWeight: 700;
+    }
+}
+
+.centeredTextResult {
+    text-align: center
+}

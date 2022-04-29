@@ -3,18 +3,20 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import { theme } from '../theme';
+import './../assets/style.css';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
     display: "flex",
     justifyContent: "center",
+    backgroundColor: "#7047E5",
   },
   boxColumnFixLeft: {
-    flex: "25%",
+    width: "25%",
     height: "100%",
   },
   boxColumnFixRight: {
-    flex: "75%",
+    width: "50%",
     height: "100%",
   },
   fixedCard: {
