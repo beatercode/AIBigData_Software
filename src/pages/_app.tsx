@@ -8,8 +8,7 @@ import './../assets/style.css';
 const useStyles = makeStyles(theme => ({
   toolbar: {
     display: "flex",
-    justifyContent: "center",
-    backgroundColor: "#7047E5",
+    justifyContent: "center"
   },
   boxColumnFixLeft: {
     width: "25%",
@@ -58,13 +57,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
       <Head>
-        <title>AI Big Data Software</title>
+        <title>ODA Clan AI BidData Software</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
         <AppBar position="fixed">
           <Toolbar variant="dense" className={classes.toolbar}>
-            <Typography variant="h5" align="center">Big Data Software</Typography>
+            <Typography variant="h5" align="center"><a href='/' style={{ textDecoration: "none", color: "white", fontWeight: 900 }}>ODA Clan Software</a></Typography>
           </Toolbar>
         </AppBar>
 

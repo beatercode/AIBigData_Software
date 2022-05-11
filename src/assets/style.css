@@ -1,11 +1,108 @@
-.MuiAppBar-colorPrimary {
-    background-color: #7047E5 !important;
-    color: white !important;
+:root {
+    --pri: #000;
+    --sec: #fff;
+    --acc: #ffa000;
+    --azzurroLight: #80d6ff;
+    --azzurroMedium: #42a5f5;
+    --azzurroHard: #0077c2;
+    --redLight: #4cb7ff;
+    --pseudoBlack: #2d3436;
+    --gradientBlack: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    --baseEgg: #37474f;
+    --gradientEgg: linear-gradient(315deg, #37474f 0%, #37474f 74%);
+
 }
 
-.MuiStepper-alternativeLabel,
+:root {
+    --appBackground: #ffd95b;
+    --colonnaSinistra: var(--azzurroHard);
+    --websiteBackground: var(--sec);
+    --h6background: var(--sec);
+    --h6color: var(--pri);
+}
+
+.recharts-polar-radius-axis-tick-value {
+    fill: transparent !important;
+}
+
+.radiusAxis {
+    fill: transparent !important;
+    stroke: transparent !important;
+}
+
+.recharts-layer text {
+    fill: white;
+}
+
+.recharts-layer line {
+    stroke: white;
+}
+
+.Mui-selected {
+    color: #fff !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    z-index: 3 !important;
+    border-bottom: 1.5px solid white !important;
+
+}
+
+.MuiTabs-flexContainer button {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color: #fff !important;
+    z-index: 3 !important;
+    border-bottom: 0.5px solid white;
+}
+
+element {
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+}
+
+element::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+}
+
+.MuiFormLabel-root.Mui-focused {
+    color: var(--pri) !important;
+}
+
+.MuiPaper-root {
+    color: var(--appBackground);
+}
+
+.MuiInput-underline:after {
+    border-bottom: 2px solid var(--acc) !important;
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked {
+    color: var(--acc) !important;
+}
+
+body {
+    background-color: var(--websiteBackground) !important;
+}
+
+.MuiStepper-alternativeLabel {
+    background-color: var(--baseEgg) !important;
+    border-radius: 30px !important;
+    margin-bottom: 20px !important;
+}
+
+.MuiAppBar-colorPrimary {
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
+    color: var(--sec) !important;
+}
+
 .MuiCardContent-root:last-child {
-    background-color: #d3d7fa !important;
+    /*background-color: var(--appBackground) !important*/
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #5d6363 0%, #7f8c8d 74%);
+    border-radius: 30px;
 }
 
 .MuiToolbar-root {
@@ -19,7 +116,7 @@
 }
 
 .MuiStepIcon-root.MuiStepIcon-active {
-    color: #7047E5 !important;
+    color: var(--acc) !important;
 }
 
 .MuiStepIcon-root {
@@ -34,7 +131,7 @@
 
 button {
     margin-top: 12px !important;
-    background-color: #7047E5 !important;
+    background-color: var(--acc) !important;
 }
 
 .toolbar {
@@ -42,36 +139,62 @@ button {
     justify-content: center !important;
 }
 
+.MuiTypography-body1 {
+    text-align: justify !important;
+}
+
+.MuiPaper-elevation1 {
+    box-shadow: none !important;
+}
+
 .boxColumnFixLeft {
-    width: 40% !important;
+    width: 100% !important;
     overflow: scroll !important;
-    background-color: #7047E5 !important;
-    border-radius: 5px !important;
-    box-shadow: rgb(38 57 77) 0px 20px 30px -10px !important;
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 20px 30px -10px #26394d !important;
+    margin-bottom: 40px !important;
+}
+
+.textZoneContainer {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.textZone {
+    flex-basis: 33%;
+    flex-grow: 0;
 }
 
 .coloredCard {
-    background-color: #ff4e00 !important;
-    background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%) !important;
+    background-color: var(--pri) !important;
 }
 
 .leftBorder {
     /*border-right: 2px solid black;*/
-    border-radius: 0 !important
+    border-radius: 0 !important;
 }
+
+.leftBorder,
+.innerColumnLeft,
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type {
+    padding-bottom: 6px !important;
+}
+
 
 .innerColumnLeft {
     padding-bottom: 1em !important;
-    border-radius: 5px !important;
+    border-radius: 30px !important;
 
     /*
     [theme.breakpoints.down('sm')] {
         borderRadius: 5px;
     }
     */
-    background-color: #7047E5 !important;
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
     color: white !important;
-    box-shadow: none !important;
 }
 
 .MuiBox-root-14 {
@@ -79,30 +202,48 @@ button {
     font-weight: 800;
 }
 
+.MuiFormControlLabel-root {
+    width: 150px !important;
+}
+
 span {
     font-weight: 600 !important;
 }
 
+.accordionSummary {
+    width: 100%;
+}
+
+.MuiAccordionSummary-content {
+    margin: 0px;
+}
+
+.accordionTitles {
+    text-align: center !important;
+    flex-basis: 33%;
+    flex-grow: 0;
+}
+
 .boxColumnFixRight {
-    width: 60% !important;
-    padding-left: 1.5em !important;
-    padding-right: 1.5em !important;
+    width: 100% !important;
+    padding-left: 0.7em !important;
+    padding-right: 0.7em !important;
     max-height: 540px !important;
-    overflow: scroll !important;
 }
 
 .leftInfo {
-    margin-top: 15px !important;
-    color: black !important;
-    background-color: white !important;
-    border-radius: 8px !important;
+    color: var(--h6color) !important;
+    background-color: var(--acc) !important;
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
         0px 1px 1px 0px rgb(0 0 0 / 14%),
         0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
-    width: fit-content !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding: 0 10px 0 10px !important;
+    width: fit-content !important;
+    border-radius: 30px !important;
+    margin-top: 10px !important;
+    padding: 1px 10px 1px 10px !important;
+    font-weight: 500 !important;
 }
 
 .leftText {
@@ -118,8 +259,8 @@ span {
 }
 
 .boxWithColumn {
-    display: flex !important;
-    height: auto !important;
+    /*display: flex !important;*/
+    height: 770px !important;
     width: fit-content !important;
     margin-right: auto !important;
     margin-left: auto !important;
@@ -137,7 +278,7 @@ span {
         padding-left: 0 !important;
         padding-right: 0 !important;
         max-height: 20000px !important;
-        flex: 40% !important;
+        flex: 100% !important;
     }
 
     .boxColumnFixLeft {
@@ -145,8 +286,8 @@ span {
         padding-left: 0 !important;
         padding-right: 0 !important;
         max-height: 230px !important;
-        border-radius: 5px !important;
-        flex: 60% !important;
+        border-radius: 30px !important;
+        flex: 100% !important;
     }
 }
 
@@ -168,7 +309,7 @@ span {
         0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
     padding: 20px 15px 20px 15px !important;
     margin-bottom: 18px !important;
-    border-radius: 10px !important;
+    border-radius: 30px !important;
 }
 
 .labelFixedWidth {
@@ -181,7 +322,7 @@ span {
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
         0px 1px 1px 0px rgb(0 0 0 / 14%),
         0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
-    border-radius: 10px !important;
+    border-radius: 30px !important;
     height: 30px !important;
     overflow: hidden !important;
 }
@@ -190,67 +331,307 @@ span {
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
         0px 1px 1px 0px rgb(0 0 0 / 14%),
         0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
-    background: #ff5656 !important;
     height: 100% !important;
-    color: transparent !important;
-    animation: fill 5s forwards ease-in-out !important;
+    color: white;
+    animation: fillBar 5s forwards ease-in-out !important;
 }
 
 .boxResult2 {
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
         0px 1px 1px 0px rgb(0 0 0 / 14%),
         0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
-    border-radius: 10px !important;
-    height: 100% !important;
+    border-radius: 30px !important;
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
+    height: 40% !important;
+    width: 47.5% !important;
     overflow: hidden !important;
     text-align: center !important;
-    background: round !important;
+    float: left;
+}
+
+.boxResult3 {
+    border-radius: 30px !important;
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 2% 0% 1% 0%;
+    box-shadow: 0 20px 30px -10px #26394d !important;
+}
+
+.boxResultDividedWrapper {
+    margin-top: 40px;
+    flex-grow: 0 !important;
+    border-radius: 30px !important;
+    flex-basis: 48% !important;
+    padding-bottom: 25px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.boxResultDivided {
+    margin-top: 40px;
+    flex-grow: 0 !important;
+    border-radius: 30px !important;
+    box-shadow: 0 20px 30px -10px #26394d !important;
+    background-color: var(--baseEgg);
+    background-image: var(--gradientEgg) !important;
+    flex-basis: 48% !important;
+    padding-bottom: 25px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.boxResultFullHeigthWrapper {
+    margin-top: 40px;
+    flex-grow: 0 !important;
+    text-align: center;
+    border-radius: 30px !important;
+    padding: 3px 3px 0px 3px;
+    margin-top: 20px;
+    width: 100% !important;
+}
+
+.boxResultFullHeigth {
+    flex-grow: 0 !important;
+    text-align: center;
+    border-radius: 30px !important;
+    box-shadow: 0 20px 30px -10px #26394d !important;
+    background-color: var(--baseEgg);
+    background-image: var(--gradientEgg) !important;
+    padding: 3px 3px 0px 3px;
+    width: 100% !important;
+    height: 95% !important;
+    margin-top: 30px;
+}
+
+.boxResultDividedWrapper:nth-child(1),
+.boxResultDivided:nth-child(1) {
+    margin-right: 2%;
+}
+
+.boxResultDividedWrapper:nth-child(2),
+.boxResultDivided:nth-child(2) {
+    margin-left: 2%;
+}
+
+.boxResultDivided2 {
+    margin-top: 40px;
+    flex-grow: 0 !important;
+    text-align: center;
+    border-radius: 30px !important;
+    box-shadow: 0 20px 30px -10px #26394d !important;
+    background-color: var(--baseEgg);
+    background-image: var(--gradientEgg) !important;
+    flex-basis: 48% !important;
+    padding-bottom: 35px;
+    margin-top: 30px;
+}
+
+.boxResultDivided2Wrapper {
+    margin-top: 40px;
+    flex-grow: 0 !important;
+    text-align: center;
+    border-radius: 30px !important;
+    flex-basis: 48% !important;
+    padding-bottom: 25px;
+    margin-top: 30px;
+}
+
+.boxResultDivided2Wrapper:nth-child(1),
+.boxResultDivided2:nth-child(1) {
+    margin-right: 2%;
+}
+
+.boxResultDivided2Wrapper:nth-child(2),
+.boxResultDivided2:nth-child(2) {
+    margin-left: 2%;
+}
+
+.boxResultFlexColumn1 {
+    flex-basis: 33% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding-right: 2%;
+}
+
+.boxResultFlexColumn2 {
+    flex-basis: 67% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding-left: 2%;
+}
+
+.boxResultFlexRow {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: 96% !important;
+}
+
+.boxResult4 {
+    border-radius: 30px !important;
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 2% 0% 1% 0%;
+}
+
+.boxResultImage {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    border-radius: 30px !important;
+    background-color: var(--baseEgg) !important;
+    background-image: var(--gradientEgg) !important;
+    height: 40% !important;
+    width: 47.5% !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    width: 95% !important;
+    margin: 20px auto 20px auto;
+    z-index: 9999;
+    /*background: round !important;*/
+    background-repeat: round !important;
+    background-image: var(--bg-image) !important;
+}
+
+.boxResultImageOdaLogo {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+    border-radius: 50% !important;
+    height: 180px !important;
+    width: 180px !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    margin: 20px auto 20px auto;
+    z-index: 9999;
+    /*background: round !important;*/
+    background-repeat: round !important;
+    background-image: url("oda_logo.jpeg");
+    position: relative;
+}
+
+.boxResult2:nth-child(1) {
+    width: 100% !important;
+    margin: 5px 0% 5px 0%;
+    z-index: 9999;
+    padding-top: 10px;
+    /*background: round !important;*/
     background-repeat: repeat !important;
     background-image: var(--bg-image) !important;
 }
 
+.boxResult2:nth-child(2),
+.boxResult2:nth-child(4) {
+    margin: 2% 2.5% 1% 0%;
+}
+
+.boxResult2:nth-child(3),
+.boxResult2:nth-child(5) {
+    margin: 2% 0% 1% 2.5%;
+}
+
 .loadingResult {
-    height: 0;
-    animation: spawn 5s forwards ease-in-out
+    height: 0px;
+    opacity: 0;
+    color: var(--pri) !important;
+    animation: spawn 5s forwards ease-in-out;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    height: auto !important;
+    color: white !important;
+    padding-bottom: 40px !important;
 }
 
 @keyframes spawn {
     0% {
-        height: 0
+        height: 0px;
+        opacity: 0;
     }
 
     99% {
-        height: 0
+        height: 0px;
+        opacity: 0;
+        ;
     }
 
     100% {
-        height: 250px
+        height: 280px;
+        opacity: 1;
     }
 }
 
+.boxResultContainer {
+    display: flex !important;
+    width: 100%;
+}
+
+.recharts-default-legend {
+    top: 20px;
+    position: relative;
+}
+
 .textInsideLoadingBar {
-    align-items: center;
+    text-align: center !important;
+    text-align: center;
+    width: fit-content;
+    color: var(--pri) !important;
+    background-color: var(--acc);
     margin: auto;
-    line-height: 25px;
 }
 
 .textInsideLoadingBar2 {
+    margin: auto;
+    font-size: 16px;
+    color: #000;
+    background-color: var(--acc);
+    border-radius: 30px 30px 0px 0px;
+    padding: 6px 18px 6px 18px;
+    position: relative;
+    float: left;
+    width: 98%;
+    z-index: -1;
+    margin-left: 2%;
+    height: 55px;
+}
+
+.textOverallRate {
     align-items: center;
     margin: auto;
-    font-size: 25px;
-    line-height: 250px;
+    font-size: 18px;
     color: #000;
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: var(--acc);
+    border-radius: 30px 30px 5px 5px;
+    width: 100%;
+    padding: 6px 18px 6px 18px;
+    position: relative;
+    float: left;
+    width: 100%;
+    z-index: -1;
+    height: 55px;
+}
+
+.textInsideLoadingBarMain {
+    align-items: center;
+    margin: auto;
+    font-size: 20px;
+    color: var(--sec) !important;
+    border-radius: 30px;
     padding: 0 10px 0 10px;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-        0px 1px 1px 0px rgb(0 0 0 / 14%),
-        0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 
 ;
 
-@keyframes fill {
+@keyframes fillBar {
     0% {
         width: 0%;
         background: #ff5656;
@@ -278,7 +659,7 @@ span {
         width: 100%;
         background: #0eb726;
         textAlign: center;
-        color: #ffffff;
+        color: white !important;
         fontWeight: 700;
     }
 }
@@ -289,7 +670,9 @@ span {
 
 .refreshButton {
     position: absolute;
-    background-color: white !important;
+    background-color:
+        /*white*/
+        black !important;
     color: black !important;
     top: 15px;
     right: 40px;
@@ -305,6 +688,6 @@ span {
 @media screen and (max-width: 600px) {
     .refreshButton {
         top: 90% !important;
-        left: 40px !important; 
-    }  
+        left: 40px !important;
+    }
 }
