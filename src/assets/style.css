@@ -21,6 +21,28 @@
     --h6color: var(--pri);
 }
 
+@media screen and (min-width: 0px) {
+    .cardWrapper {
+        display: none !important;
+    }
+    .cardWrapperMobile {
+        display: block !important;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .cardWrapper {
+        display: block !important;
+    }
+    .cardWrapperMobile {
+        display: none !important;
+    }
+}
+
+.react-sweet-progress-line-inner {
+    height: 18px;
+}
+
 .recharts-polar-radius-axis-tick-value {
     fill: transparent !important;
 }
@@ -86,6 +108,38 @@ body {
     background-color: var(--websiteBackground) !important;
 }
 
+.cardWrapper::before {
+    content: 'ODA Clan AI Software';
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    top: -20px;
+    width: 30%;
+    left: 35%;
+    padding: 0 10px;
+    background: #fff;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.cardWrapperMobile::before {
+    content: 'ODA Clan AI Software';
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    top: -7px;
+    width: 50%;
+    left: 25%;
+    padding: 0 10px;
+    background: #fff;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 .MuiStepper-alternativeLabel {
     background-color: var(--baseEgg) !important;
     border-radius: 30px !important;
@@ -96,13 +150,16 @@ body {
     background-color: var(--baseEgg) !important;
     background-image: var(--gradientEgg) !important;
     color: var(--sec) !important;
+    display: none !important;
 }
 
 .MuiCardContent-root:last-child {
     /*background-color: var(--appBackground) !important*/
-    background-color: #000000;
-    background-image: linear-gradient(315deg, #5d6363 0%, #7f8c8d 74%);
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ffffff 0%, #ffffff 74%);
+    /*border: 1.2px solid gray;*/
     border-radius: 30px;
+    overflow: hidden;
 }
 
 .MuiToolbar-root {
@@ -228,7 +285,6 @@ span {
     width: 100% !important;
     padding-left: 0.7em !important;
     padding-right: 0.7em !important;
-    max-height: 540px !important;
 }
 
 .leftInfo {
@@ -367,7 +423,7 @@ span {
     border-radius: 30px !important;
     flex-basis: 48% !important;
     padding-bottom: 25px;
-    margin-top: 20px;
+    margin-top: 14px;
     text-align: center;
 }
 
@@ -390,7 +446,7 @@ span {
     text-align: center;
     border-radius: 30px !important;
     padding: 3px 3px 0px 3px;
-    margin-top: 20px;
+    margin-top: 14px;
     width: 100% !important;
 }
 
@@ -543,7 +599,7 @@ span {
     height: 0px;
     opacity: 0;
     color: var(--pri) !important;
-    animation: spawn 5s forwards ease-in-out;
+    /* animation: spawn 5s forwards ease-in-out; */
     display: flex !important;
     flex-wrap: wrap !important;
     flex-direction: row !important;
@@ -573,6 +629,8 @@ span {
 .boxResultContainer {
     display: flex !important;
     width: 100%;
+    z-index: 0;
+    margin-top: 5px;
 }
 
 .recharts-default-legend {
@@ -629,21 +687,22 @@ span {
     padding: 0 10px 0 10px;
 }
 
-;
-
 @keyframes fillBar {
     0% {
         width: 0%;
         background: #ff5656;
-        color: transparent
+        color: white;
+        content: '1%'
     }
 
     20% {
-        width: 20%
+        width: 20%;
+        content: '20%'
     }
 
     60% {
-        width: 75%
+        width: 75%;
+        content: '60%'
     }
 
     79% {
@@ -652,7 +711,8 @@ span {
     }
 
     99% {
-        color: transparent
+        color: transparent;
+        content: '99%'
     }
 
     100% {
