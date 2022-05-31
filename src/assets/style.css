@@ -215,7 +215,6 @@ button {
 .boxColumnFixLeft {
     margin-left: 0.7em !important;
     margin-right: 0.7em !important;
-    width: 100% !important;
     overflow: scroll !important;
     background-color: var(--baseEgg) !important;
     background-image: var(--gradientEgg) !important;
