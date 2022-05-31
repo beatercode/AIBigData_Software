@@ -21,10 +21,17 @@
     --h6color: var(--pri);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap');
+
+* {
+    font-family: 'Kumbh Sans', sans-serif !important;
+}
+
 @media screen and (min-width: 0px) {
     .cardWrapper {
         display: none !important;
     }
+
     .cardWrapperMobile {
         display: block !important;
     }
@@ -34,6 +41,7 @@
     .cardWrapper {
         display: block !important;
     }
+
     .cardWrapperMobile {
         display: none !important;
     }
@@ -264,7 +272,13 @@ button {
 }
 
 span {
-    font-weight: 600 !important;
+    font-weight: 400 !important;
+}
+
+.textInsideLoadingBar2>.percent,
+.textOverallRate>.percent {
+    font-weight: 700 !important;
+    margin-left: 7px;
 }
 
 .accordionSummary {

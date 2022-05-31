@@ -1,25 +1,21 @@
-import { Box, Button, Card, CardContent, CircularProgress, Grid, makeStyles, Step, StepLabel, Stepper, Typography } from '@material-ui/core';
+import { Box, Button, Card, CardContent, CircularProgress, Grid, Step, StepLabel, Stepper, Typography } from '@material-ui/core';
 import { Field, Form, Formik, FormikConfig, FormikValues } from 'formik';
 import { CheckboxWithLabel, TextField } from 'formik-material-ui';
 import { db } from "../firebase.js";
 import { collection, onSnapshot } from 'firebase/firestore';
-import React, { useEffect, useState, PureComponent } from 'react';
-//import Mui as MuiBox from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import { AreaChart, Area } from 'recharts';
-import { blue, teal } from '@material-ui/core/colors';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
+import { ResponsivePie } from '@nivo/pie'
+import { linearGradientDef } from '@nivo/core'
 
 const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
 
@@ -171,7 +167,7 @@ export default function Home() {
               }}
             >
               <FormikStep label="📊">
-                < Box paddingBottom={1} paddingTop={3} >
+                < Box paddingBottom={1} paddingTop={3} style={{ marginBottom: "20px" }}>
                   Project basic information
                 </Box>
                 <Box paddingBottom={0}>
@@ -476,52 +472,51 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
     { name: 'B3', value: 0 },
   ];
 
-  const rand1 = Math.floor(Math.random() * (26 - 6) + 10);
-  const rand2 = Math.floor(Math.random() * (26 - 6) + 10);
-  const rand3 = Math.floor(Math.random() * (26 - 6) + 10);
-  const rand4 = Math.floor(Math.random() * (26 - 6) + 10);
-  const rand5 = Math.floor(Math.random() * (26 - 6) + 10);
+  const comm_twitter = +ps_rateCommunity + 29;
+  const comm_website = +ps_rateCommunity + 23;
+  const comm_medium = +ps_rateCommunity + 2;
+  const comm_discord = +ps_rateCommunity + 7;
+  const comm_others = +ps_rateCommunity + 22;
 
-  const avg_twitter = 39;
-  const avg_website = 38;
-  const avg_medium = 29;
-  const avg_discord = 49;
-  const avg_others = 32;
+  const avg_twitter = 51;
+  const avg_website = 50;
+  const avg_medium = 37;
+  const avg_discord = 42;
+  const avg_others = 39;
 
   const data_community = [
     {
       subject: 'Twitter',
-      A: (+ps_rateCommunity + rand1),
+      A: comm_twitter,
       B: avg_twitter,
       fullMark: 100,
     },
     {
       subject: 'Medium',
-      A: (+ps_rateCommunity + rand2),
+      A: comm_website,
       B: avg_website,
       fullMark: 100,
     },
     {
       subject: 'Website',
-      A: (+ps_rateCommunity + rand3),
+      A: comm_medium,
       B: avg_medium,
       fullMark: 100,
     },
     {
       subject: 'Discord',
-      A: (+ps_rateCommunity + rand4),
+      A: comm_discord,
       B: avg_discord,
       fullMark: 100,
     },
     {
       subject: 'Others',
-      A: (+ps_rateCommunity + rand5),
+      A: comm_others,
       B: avg_others,
       fullMark: 100,
     },
   ];
 
-  const COLORS = ['#0088FE', '#FFFFFF'];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -539,13 +534,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
     return step === childrenArray.length - 1;
   }
 
-  const boldText = {
-    fontWeight: 'bold' as 'bold',
-    marginLeft: '7px'
-  }
-
   const [percentLoading, setPercentLoading] = useState(0);
-  const [colorLoading, setColorLoading] = useState("red");
+  const [colorLoading, setColorLoading] = useState("#b31919");
 
   function startBarLoading() {
     setStartedLoadingBar(true);
@@ -553,14 +543,26 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
     let augment = 1;
     const int = setInterval(function () {
       count += augment;
-      setPercentLoading(count);
+      setPercentLoading(Math.round(count));
+      if (count == 20) {
+        setColorLoading("#b34019");
+      }
       if (count == 40) {
         augment = 2
-        setColorLoading("orange");
+        setColorLoading("#b36919");
       }
-      if (count == 76) {
+      if (count == 52) {
+        setColorLoading("#abb319");
+      }
+      if (count == 72) {
         augment = 0.5;
-        setColorLoading("green");
+        setColorLoading("#85b319");
+      }
+      if (count == 90) {
+        setColorLoading("#5cb319");
+      }
+      if (count == 90) {
+        setColorLoading("#00e676");
       }
       if (count == 100) {
         clearInterval(int);
@@ -569,28 +571,25 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
     }, 50);
   }
 
+  const ecosTempData = [
+    {
+      "id": ps_projectName,
+      "label": ps_projectName,
+      "value": ps_rateEcosystem,
+      "color": '#444454'
+    },
+    {
+      "id": "Average",
+      "label": "Average",
+      "value": 52,
+      "color": '#333333'
+    }
+  ];
+
   if (completed) {
     if (!completedBar && !startedLoadingBar) { startBarLoading(); }
     return (
       <Box>
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart width={400} height={400}>
-            <Pie
-              data={data_team}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={80}
-              fill="#8884d8"
-              dataKey="value"
-            >
-              {data_team.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
         <Box style={{ width: "100%", textAlign: "center" }}>
           <span style={{ position: "relative", top: "20%" }} >
             Analizing:
@@ -600,7 +599,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           </span>
         </Box>
         <Progress
-          percent={Math.round(percentLoading)}
+          percent={percentLoading}
           status="error"
           theme={{
             error: {
@@ -626,8 +625,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                       </span>
                     </>
                     <>
-                      <span style={boldText}>
-                        {ps_rateTokenomics}%
+                      <span className='percent'>
+                        {ps_rateOverall}%
                       </span>
                     </>
                   </Box>
@@ -640,7 +639,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                       </span>
                       <br />
                       <span style={{ textDecoration: "underline" }}>
-                        {"https://discord.gg/tvkEBN2B"}
+                        {"https://discord.gg/odaclan"}
                       </span>
                     </>
                     <Box className="boxResultImageOdaLogo" style={{ width: "180px !important", height: "180px !important" }}>
@@ -659,7 +658,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                       </span>
                     </>
                     <>
-                      <span style={boldText}>
+                      <span className='percent'>
                         {ps_rateTokenomics}%
                       </span>
                     </>
@@ -684,8 +683,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Bar name={ps_projectName} dataKey="analizedProject" fill="#8884d8" />
-                            <Bar name="Average" dataKey="averageProject" fill="#82ca9d" />
+                            <Bar name={ps_projectName} dataKey="analizedProject" fill="#F47560" opacity={'0.8'} />
+                            <Bar name="Average" dataKey="averageProject" fill="#00e676" opacity={'0.8'} />
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
@@ -701,7 +700,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                         </span>
                       </>
                       <>
-                        <span style={boldText}>
+                        <span className='percent'>
                           {ps_rateTeam}%
                         </span>
                       </>
@@ -726,8 +725,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <XAxis dataKey="name" />
                             <YAxis />
                             <Tooltip />
-                            <Area name={ps_projectName} type="monotone" dataKey="analizedProject" stackId="1" stroke="#8884d8" fill="#8884d8" />
-                            <Area name="Average" type="monotone" dataKey="averageProject" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+                            <Area name={ps_projectName} type="monotone" dataKey="analizedProject" stackId="1" stroke="#00e676" fill="#00e676" />
+                            <Area name="Average" type="monotone" dataKey="averageProject" stackId="1" stroke="#F47560" fill="#F47560" />
                           </AreaChart>
                         </ResponsiveContainer>
                       </div>
@@ -745,13 +744,14 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                         </span>
                       </>
                       <>
-                        <span style={boldText}>
+                        <span className='percent'>
                           {ps_rateEcosystem}%
                         </span>
                       </>
                     </span>
                   </>
                   <Box className="boxResultDivided2">
+                    { /*
                     <>
                       <div style={{ width: "100%", height: "200px", marginTop: "15px" }}>
                         <ResponsiveContainer width="100%" height="100%">
@@ -759,6 +759,134 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <Pie name={ps_projectName} data={data_ecosystem1} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
                             <Pie name="Average" data={data_ecosystem2} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
                           </PieChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </>
+                    */ }
+                    <>
+                      <div style={{ width: "100%", height: "200px", marginTop: "15px" }}>
+                        <ResponsiveContainer width="100%" height="100%">
+                          <ResponsivePie
+                            data={ecosTempData}
+                            isInteractive={false}
+                            colors={['#CF6C5D', '#30A667']}
+                            margin={{ top: 5, right: 5, bottom: 65, left: 5 }}
+                            innerRadius={0.5}
+                            padAngle={0.7}
+                            cornerRadius={3}
+                            activeOuterRadiusOffset={8}
+                            borderWidth={1}
+                            borderColor={{
+                              from: 'color',
+                              modifiers: [
+                                [
+                                  'darker',
+                                  0.2
+                                ]
+                              ]
+                            }}
+                            arcLinkLabelsSkipAngle={10}
+                            arcLinkLabelsTextColor="#ffffff"
+                            arcLinkLabelsThickness={2}
+                            arcLinkLabelsColor="#ffffff"
+                            arcLabelsSkipAngle={10}
+                            arcLabelsTextColor= '#000000' 
+                            defs={[
+                              {
+                                id: 'dots',
+                                type: 'patternDots',
+                                background: 'inherit',
+                                color: 'rgba(244, 117, 96, 0.3)',
+                                size: 4,
+                                padding: 1,
+                                stagger: true
+                              },
+                              {
+                                id: 'lines',
+                                type: 'patternLines',
+                                background: 'inherit',
+                                color: 'rgba(255, 255, 255, 0.3)',
+                                rotation: -45,
+                                lineWidth: 6,
+                                spacing: 10
+                              }
+                            ]}
+                            fill={[
+                              {
+                                match: {
+                                  id: 'ruby'
+                                },
+                                id: 'dots'
+                              },
+                              {
+                                match: {
+                                  id: 'c'
+                                },
+                                id: 'dots'
+                              },
+                              {
+                                match: {
+                                  id: 'go'
+                                },
+                                id: 'dots'
+                              },
+                              {
+                                match: {
+                                  id: 'python'
+                                },
+                                id: 'dots'
+                              },
+                              {
+                                match: {
+                                  id: 'scala'
+                                },
+                                id: 'lines'
+                              },
+                              {
+                                match: {
+                                  id: 'lisp'
+                                },
+                                id: 'lines'
+                              },
+                              {
+                                match: {
+                                  id: 'elixir'
+                                },
+                                id: 'lines'
+                              },
+                              {
+                                match: {
+                                  id: 'javascript'
+                                },
+                                id: 'lines'
+                              }
+                            ]}
+                            legends={[
+                              {
+                                anchor: 'bottom',
+                                direction: 'row',
+                                justify: false,
+                                translateX: 0,
+                                translateY: 56,
+                                itemsSpacing: 0,
+                                itemWidth: 100,
+                                itemHeight: 18,
+                                itemTextColor: '#ffffff',
+                                itemDirection: 'left-to-right',
+                                itemOpacity: 1,
+                                symbolSize: 18,
+                                symbolShape: 'square',
+                                effects: [
+                                  {
+                                    on: 'hover',
+                                    style: {
+                                      itemTextColor: '#000'
+                                    }
+                                  }
+                                ]
+                              }
+                            ]}
+                          />
                         </ResponsiveContainer>
                       </div>
                     </>
@@ -773,7 +901,7 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                         </span>
                       </>
                       <>
-                        <span style={boldText}>
+                        <span className='percent'>
                           {ps_rateCommunity}%
                         </span>
                       </>
@@ -787,8 +915,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <PolarGrid />
                             <PolarAngleAxis dataKey="subject" />
                             <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                            <Radar name={ps_projectName} dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                            <Radar name="Average" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+                            <Radar name={ps_projectName} dataKey="A" stroke="#F47560" fill="#F47560" fillOpacity={0.6} />
+                            <Radar name="Average" dataKey="B" stroke="#00e676" fill="#00e676" fillOpacity={0.6} />
                             <Legend />
                           </RadarChart>
                         </ResponsiveContainer>
@@ -815,12 +943,15 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
           setPs_websiteUrl(values.websiteUrl);
           setCompleted(true);
           values.projects.forEach(element => {
+            //console.log(element);
             if (element.name === values.projectName.toLowerCase().replace(/\s/g, "")) {
               setPs_rateCommunity(element.rate_community);
               setPs_rateTeam(element.rate_team);
               setPs_rateTokenomics(element.rate_tokenomics);
               setPs_rateEcosystem(element.rate_ecosystem);
-              setPs_rateOverall("" + +(element.rate_community + element.rate_team + element.rate_tokenomics + element.rate_ecosystem) / 4);
+              var calcOverall = (+element.rate_community + +element.rate_team + +element.rate_tokenomics + +element.rate_ecosystem) / 4;
+              console.log(calcOverall);
+              setPs_rateOverall("" + calcOverall);
               setPs_image(element.imgUrl);
               document.documentElement.style.setProperty('--bg-image', "url(" + element.imgUrl + ")");
             }

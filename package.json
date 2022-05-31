@@ -16,6 +16,8 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/lab": "^5.0.0-alpha.80",
     "@mui/material": "^5.6.4",
+    "@nivo/core": "^0.79.0",
+    "@nivo/pie": "^0.79.1",
     "firebase": "^9.6.11",
     "formik": "^2.2.9",
     "formik-material-ui": "^3.0.1",
