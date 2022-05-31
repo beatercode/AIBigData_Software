@@ -461,17 +461,6 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
     }
   ];
 
-  const data_ecosystem1 = [
-    { name: 'Group A', value: 52 * 100 },
-    { name: 'Group B', value: parseInt(ps_rateEcosystem) * 100 }
-  ];
-
-  const data_ecosystem2 = [
-    { name: 'B1', value: 52 },
-    { name: 'B2', value: ps_rateEcosystem },
-    { name: 'B3', value: 0 },
-  ];
-
   const comm_twitter = +ps_rateCommunity + 29;
   const comm_website = +ps_rateCommunity + 23;
   const comm_medium = +ps_rateCommunity + 2;
@@ -683,8 +672,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Bar name={ps_projectName} dataKey="analizedProject" fill="#F47560" opacity={'0.8'} />
-                            <Bar name="Average" dataKey="averageProject" fill="#00e676" opacity={'0.8'} />
+                            <Bar name={ps_projectName} dataKey="analizedProject" fill="#00e676" opacity={'0.8'} />
+                            <Bar name="Average" dataKey="averageProject" fill="#F47560" opacity={'0.8'} />
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
@@ -725,8 +714,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <XAxis dataKey="name" />
                             <YAxis />
                             <Tooltip />
-                            <Area name={ps_projectName} type="monotone" dataKey="analizedProject" stackId="1" stroke="#00e676" fill="#00e676" />
-                            <Area name="Average" type="monotone" dataKey="averageProject" stackId="1" stroke="#F47560" fill="#F47560" />
+                            <Area name={ps_projectName} type="monotone" dataKey="analizedProject" stackId="1" stroke="#F47560" fill="#F47560" />
+                            <Area name="Average" type="monotone" dataKey="averageProject" stackId="1" stroke="#00e676" fill="#00e676" />
                           </AreaChart>
                         </ResponsiveContainer>
                       </div>
@@ -751,25 +740,13 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                     </span>
                   </>
                   <Box className="boxResultDivided2">
-                    { /*
-                    <>
-                      <div style={{ width: "100%", height: "200px", marginTop: "15px" }}>
-                        <ResponsiveContainer width="100%" height="100%">
-                          <PieChart width={400} height={400}>
-                            <Pie name={ps_projectName} data={data_ecosystem1} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
-                            <Pie name="Average" data={data_ecosystem2} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
-                          </PieChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </>
-                    */ }
                     <>
                       <div style={{ width: "100%", height: "200px", marginTop: "15px" }}>
                         <ResponsiveContainer width="100%" height="100%">
                           <ResponsivePie
                             data={ecosTempData}
                             isInteractive={false}
-                            colors={['#CF6C5D', '#30A667']}
+                            colors={['#30A667', '#CF6C5D']}
                             margin={{ top: 5, right: 5, bottom: 65, left: 5 }}
                             innerRadius={0.5}
                             padAngle={0.7}
@@ -915,8 +892,8 @@ export function FormikStepper({ children, ...props }: FormikConfig<FormikValues>
                             <PolarGrid />
                             <PolarAngleAxis dataKey="subject" />
                             <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                            <Radar name={ps_projectName} dataKey="A" stroke="#F47560" fill="#F47560" fillOpacity={0.6} />
-                            <Radar name="Average" dataKey="B" stroke="#00e676" fill="#00e676" fillOpacity={0.6} />
+                            <Radar name={ps_projectName} dataKey="A" stroke="#00e676" fill="#00e676" fillOpacity={0.6} />
+                            <Radar name="Average" dataKey="B" stroke="#F47560" fill="#F47560" fillOpacity={0.6} />
                             <Legend />
                           </RadarChart>
                         </ResponsiveContainer>
