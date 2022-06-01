@@ -140,7 +140,7 @@ export default function Home() {
           <Box marginTop={0} className="boxColumnFixRight">
             <FormikStepper
               initialValues={{
-                projectName: 'Everseed',
+                projectName: '',
                 websiteUrl: '',
                 twitterCheckbox: false,
                 discordCheckbox: false,
